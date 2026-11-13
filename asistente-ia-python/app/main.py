@@ -7,14 +7,14 @@ import os
 from app.retriever import buscar_contexto
 from app.prompts import generar_respuesta
 
-app = FastAPI(title="Asistente Contable - IA Documental")
+app = FastAPI(title="Asistente IA - Consulta de Corpus")
 
 # ========================
 # 📍 Endpoint raíz
 # ========================
 @app.get("/")
 def root():
-    return {"message": "Bienvenido al Asistente Contable IA"}
+    return {"message": "Bienvenido al Asistente IA"}
 
 # ========================
 # 📂 Subir PDF a data/pdfs
@@ -40,7 +40,7 @@ class Consulta(BaseModel):
 @app.post("/consultar/")
 async def consultar(data: Consulta):
     """
-    Recibe una pregunta contable, busca contexto en los documentos,
+    Recibe una pregunta, busca contexto en el corpus cargado,
     y genera una respuesta con IA.
     """
     try:

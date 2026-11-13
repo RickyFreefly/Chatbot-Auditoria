@@ -1,7 +1,7 @@
 {
-  "name": "asistente-contable-node",
+  "name": "asistente-ia-node",
   "version": "1.0.0",
-  "description": "Backend Node.js para el asistente contable con conexión a microservicio Python (IA normativa).",
+  "description": "Backend Node.js del asistente IA, con conexión a microservicio Python (RAG sobre corpus).",
   "main": "src/server.js",
   "type": "module",
   "scripts": {

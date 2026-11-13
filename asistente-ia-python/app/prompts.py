@@ -5,6 +5,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# 🔹 Rol del asistente: configurable vía .env (SYSTEM_PROMPT) según el corpus
+# que se cargue en cada proyecto; este es solo el valor por defecto.
+SYSTEM_PROMPT = os.getenv(
+    "SYSTEM_PROMPT",
+    "Eres un asistente experto que responde preguntas basándote únicamente "
+    "en el contexto documental proporcionado."
+)
+
 def generar_respuesta(pregunta: str, contexto: str) -> str:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -13,8 +21,8 @@ def generar_respuesta(pregunta: str, contexto: str) -> str:
         contexto = contexto[:2500] + "\n\n[Contexto truncado por longitud]\n"
 
     prompt = f"""
-Eres un asistente contable experto en NIIF, NICSP y NIA.
-Responde con precisión técnica y citas cuando sea posible.
+{SYSTEM_PROMPT}
+Responde con precisión y citas cuando sea posible.
 Usa únicamente el siguiente contexto documental para sustentar la respuesta.
 
 Contexto:

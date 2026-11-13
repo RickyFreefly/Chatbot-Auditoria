@@ -7,7 +7,7 @@ const API_URL = "http://localhost:4000/api/consultar";
 
 function App() {
   const [messages, setMessages] = useState([
-    { role: "bot", text: "👋 ¡Hola! Soy tu asistente contable experto en NIIF, NIA y NICSP. ¿En qué puedo ayudarte hoy?" }
+    { role: "bot", text: "👋 ¡Hola! Soy tu asistente IA. ¿En qué puedo ayudarte hoy?" }
   ]);
   const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">💼 Asistente Contable NIIF / NIA / NICSP</div>
+      <div className="chat-header">💬 Asistente IA</div>
 
       <div className="chat-body">
         {messages.map((msg, i) => (
@@ -59,7 +59,7 @@ function App() {
       <div className="chat-input">
         <input
           type="text"
-          placeholder="Escribe tu consulta contable..."
+          placeholder="Escribe tu consulta..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
